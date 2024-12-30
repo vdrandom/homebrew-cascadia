@@ -23,6 +23,4 @@ cask "otf-cascadia-code" do
   font "otf/static/CascadiaCode-SemiBoldItalic.otf"
   font "otf/static/CascadiaCode-SemiLight.otf"
   font "otf/static/CascadiaCode-SemiLightItalic.otf"
-
-  # No zap stanza required
 end
