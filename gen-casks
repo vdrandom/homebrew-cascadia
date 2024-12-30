@@ -10,6 +10,15 @@ FONTS=(
 	'Cascadia Mono NF'
 )
 
+URL="https://github.com/microsoft/cascadia-code/releases/download/v$VERSION/CascadiaCode-$VERSION.zip"
+TESTPATH=/tmp/cascadia.zip
+CHECKSTRING="$CHECKSUM $TESTPATH"
+
+echo check
+curl $URL -Lo $TESTPATH
+sha256sum -c - <<< $CHECKSTRING || exit 1
+rm -v $TESTPATH
+
 for font in $FONTS[@]; do
 	base="${font// /}"
 	cask="otf-${${font:l}// /-}"
@@ -43,6 +52,7 @@ for font in $FONTS[@]; do
 	EOF
 done
 
+echo done
 [[ $1 != commit ]] && exit
 
 git add Casks
