@@ -1,10 +1,12 @@
 OTF version of cascadia fonts
 =============================
 
-this is the cask that installs cascadia fonts, but not the dynamic ttf version
+These casks provide cascadia fonts in static otf version instead of dynamic ttf.
 
-as terminals on macos display text weird when using ttf
+The reason it may be useful is because terminals on MacOS don't hint properly with dynamic ttf.
 
-to update: set versoin and checksum in gen.sh and run it
-
-depends on envsubst
+In case the font gets updated:
+```
+$EDITOR gen-casks
+./gen-casks
+```

@@ -1,0 +1,50 @@
+#!/usr/bin/env zsh
+VERSION='2407.24'
+CHECKSUM='e67a68ee3386db63f48b9054bd196ea752bc6a4ebb4df35adce6733da50c8474'
+FONTS=(
+	'Cascadia Code'
+	'Cascadia Code PL'
+	'Cascadia Code NF'
+	'Cascadia Mono'
+	'Cascadia Mono PL'
+	'Cascadia Mono NF'
+)
+
+for font in $FONTS[@]; do
+	base="${font// /}"
+	cask="otf-${${font:l}// /-}"
+	cat > Casks/$cask.rb <<-EOF
+	cask "$cask" do
+	  version "$VERSION"
+	  sha256 "$CHECKSUM"
+
+	  url "https://github.com/microsoft/cascadia-code/releases/download/v#{version}/CascadiaCode-#{version}.zip"
+	  name "$font"
+	  homepage "https://github.com/microsoft/cascadia-code"
+
+	  livecheck do
+	    url :url
+	    strategy :github_latest
+	  end
+
+	  font "otf/static/$base-Bold.otf"
+	  font "otf/static/$base-BoldItalic.otf"
+	  font "otf/static/$base-ExtraLight.otf"
+	  font "otf/static/$base-ExtraLightItalic.otf"
+	  font "otf/static/$base-Italic.otf"
+	  font "otf/static/$base-Light.otf"
+	  font "otf/static/$base-LightItalic.otf"
+	  font "otf/static/$base-Regular.otf"
+	  font "otf/static/$base-SemiBold.otf"
+	  font "otf/static/$base-SemiBoldItalic.otf"
+	  font "otf/static/$base-SemiLight.otf"
+	  font "otf/static/$base-SemiLightItalic.otf"
+	end
+	EOF
+done
+
+[[ $1 != commit ]] && exit
+
+git add Casks
+git commit -m "updated: $VERSION"
+git push
