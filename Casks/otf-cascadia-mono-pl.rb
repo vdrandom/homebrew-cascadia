@@ -11,18 +11,6 @@ cask "otf-cascadia-mono-pl" do
     strategy :github_latest
   end
 
-  font "otf/static/CascadiaCodePL-Bold.otf"
-  font "otf/static/CascadiaCodePL-BoldItalic.otf"
-  font "otf/static/CascadiaCodePL-ExtraLight.otf"
-  font "otf/static/CascadiaCodePL-ExtraLightItalic.otf"
-  font "otf/static/CascadiaCodePL-Italic.otf"
-  font "otf/static/CascadiaCodePL-Light.otf"
-  font "otf/static/CascadiaCodePL-LightItalic.otf"
-  font "otf/static/CascadiaCodePL-Regular.otf"
-  font "otf/static/CascadiaCodePL-SemiBold.otf"
-  font "otf/static/CascadiaCodePL-SemiBoldItalic.otf"
-  font "otf/static/CascadiaCodePL-SemiLight.otf"
-  font "otf/static/CascadiaCodePL-SemiLightItalic.otf"
   font "otf/static/CascadiaMonoPL-Bold.otf"
   font "otf/static/CascadiaMonoPL-BoldItalic.otf"
   font "otf/static/CascadiaMonoPL-ExtraLight.otf"

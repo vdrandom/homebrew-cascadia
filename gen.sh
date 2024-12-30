@@ -13,6 +13,9 @@ NAMES=(
 )
 
 for name in $NAMES[@]; do
-  export NAME=$name FNAME=${name// /}
-  envsubst < template.rb > Casks/${${name:l}// /-}.rb
+  NAME=$name
+  FNAME=${name// /}
+  PKGNAME="otf-${${name:l}// /-}"
+  export NAME FNAME PKGNAME
+  envsubst < template.rb > Casks/$PKGNAME.rb
 done

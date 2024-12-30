@@ -1,4 +1,4 @@
-cask "otf-cascadia-mono-pl" do
+cask "$PKGNAME" do
   version "$VERSION"
   sha256 "$CHECKSUM"
 
